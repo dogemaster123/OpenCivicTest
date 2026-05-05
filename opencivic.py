@@ -73,7 +73,7 @@ with col3:
         color = 'red' if val > 0.05 else 'green' if val < 0.01 else 'orange'
         return f'color: {color}'
 
-    styled_df = df_metrics.style.format({'Discrepancy_Score': '{:.1%}'}).applymap(color_discrepancy, subset=['Discrepancy_Score'])
+    styled_df = df_metrics.style.format({'Discrepancy_Score': '{:.1%}'}).map(color_discrepancy, subset=['Discrepancy_Score'])
 
     # Display the styled table
     st.dataframe(styled_df, use_container_width=True)
